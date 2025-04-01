@@ -1,71 +1,71 @@
-import { Address } from "./address";
+import type { Address } from "./address";
 
 export class Customer {
-    private _id: string;
-    private _name: string;
-    private _address?: Address;
-    private _rewardPoints: number = 0;
-    private _active: boolean = false;
+	private _id: string;
+	private _name: string;
+	private _address?: Address;
+	private _rewardPoints = 0;
+	private _active = false;
 
-    constructor(id: string, name: string, address?: Address) {
-        this._id = id;
-        this._name = name;
-        this._address = address;
-        this.validate();
-    }
+	constructor(id: string, name: string, address?: Address) {
+		this._id = id;
+		this._name = name;
+		this._address = address;
+		this.validate();
+	}
 
-    get id() {
-        return this._id;
-    }
-    
-    get name() {
-        return this._name;
-    }
+	get id() {
+		return this._id;
+	}
 
-    get address() {
-        return this._address;
-    }
+	get name() {
+		return this._name;
+	}
 
-    get rewardPoints() {
-        return this._rewardPoints;
-    }
+	get address() {
+		return this._address;
+	}
 
-    changeAddress(address: Address) {
-        this._address = address;
-    }
+	get rewardPoints() {
+		return this._rewardPoints;
+	}
 
-    validate() {
-        if (this._id.length === 0) {
-            throw new Error("Id is required");
-        }
+	changeAddress(address: Address) {
+		this._address = address;
+	}
 
-        if (this._name.length === 0) {
-            throw new Error("Name is required");
-        }
-    }
+	validate() {
+		if (this._id.length === 0) {
+			throw new Error("Id is required");
+		}
 
-    changeName(name: string) {
-        this._name = name;
-        this.validate();
-    }
+		if (this._name.length === 0) {
+			throw new Error("Name is required");
+		}
+	}
 
-    awardPoints(points: number) {
-        this._rewardPoints = this._rewardPoints + points;
-    }
+	changeName(name: string) {
+		this._name = name;
+		this.validate();
+	}
 
-    activate() {
-        if (!this._address) {
-            throw new Error("Address is required to activate Customer")
-        }
+	awardPoints(points: number) {
+		this._rewardPoints = this._rewardPoints + points;
+	}
 
-        this._active = true;
-    }
+	activate() {
+		if (!this._address) {
+			throw new Error("Address is required to activate Customer");
+		}
 
-    deactivate() {
-        this._active = false;
-    }
+		this._active = true;
+	}
 
-    get isActive() {
-        return this._active;
-    }
+	deactivate() {
+		this._active = false;
+	}
+
+	get isActive() {
+		return this._active;
+	}
 }

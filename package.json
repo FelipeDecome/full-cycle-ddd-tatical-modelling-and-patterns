@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@swc/cli": "^0.6.0",
     "@swc/core": "^1.11.13",
     "@swc/jest": "^0.2.37",
@@ -12,7 +13,8 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "test": "tsc --noEmit && jest"
+    "test": "tsc --noEmit && jest",
+    "lint": "npx @biomejs/biome lint --write ."
   },
   "dependencies": {
     "reflect-metadata": "^0.2.2",
